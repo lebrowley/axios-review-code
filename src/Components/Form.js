@@ -16,6 +16,18 @@ export default class Form extends Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
+//public class field syntax aka arrow method
+    addNewCar = () => {
+        const {make, model, year, color, price} = this.state
+        //destructure these keys off of this.state up above
+        const newCar = {make, model, year, color, price};
+        //the above is shorthand for the one below- when the key and value are the same, you can just write them once
+        // const newCar ={make: make}
+        //this is your body object
+        this.props.addVehicle(newCar);
+    }
+
+
     render(){
         const {make, model, year, color, price} = this.state
         return(
